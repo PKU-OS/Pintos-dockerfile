@@ -6,18 +6,18 @@ Your TA has built a docker image which contains all the toolchain to compile, ru
 
 First, you need to install docker on your laptop. Go to the [docker download page](https://www.docker.com/get-started) for help. 
 
-Then pull the image and run it, just type the command below into your favourite shell (you can run `docker run --help` to find out what this command mean in detail):
+Then pull the image and run it, just type the command below into your favourite shell (you can run `docker run --help` to find out what this command means in detail):
 
 ```
 docker run -it pkuflyingpig/pintos bash
 ```
 
-This image is about 3GB (it contains a full Ubuntu18.04), so it may take sometime at its first run.
+This image is about 3GB (it contains a full Ubuntu18.04), so it may take some time at its first run.
 
-If all goes well, you will enter a bash shell. You can use `ls` or `pwd` to play around and you will find there is a `toolchain` directory which contains all the dependencies and your home directory is `/home/PKUOS`. Now you own a tiny Ubuntu OS inside your host computer, and you can shut it down easily by `Ctrl+d`. You can check that it has exited by running `docker ps -a`.
+If everything goes well, you will enter a bash shell. You can use `ls` or `pwd` to play around and you will find there is a `toolchain` directory which contains all the dependencies and your home directory is under `/home/PKUOS`. Now you own a tiny Ubuntu OS inside your host computer, and you can shut it down easily by `Ctrl+d`. You can check that it has exited by running `docker ps -a`.
 
 ## How to run Pintos
-Now change back to your host computer, git clone the Pintos repository by running:
+Now change back to your host machine, git clone the Pintos repository by running:
 
 ```
 git clone git@github.com:PKU-OS/pintos.git
@@ -56,14 +56,14 @@ Boot complete.
 
 Your Pintos has been booted successfully, congratulations :)
 
-Throughout this semester, you can modify your Pintos source code in your host machine with your favourite IDE and run/debug/test your Pintos in the container.
+Throughout this semester, you can modify your Pintos source code in your host machine with your favourite IDE and run/debug/test your Pintos in the container. You can leave the container running when you are modifying Pintos, and your modification will be visible in the container immediatedly.
 
 ## How to debug Pintos
-If you have read the `Test and Debug` part in the Documentation, you may find that you need two terminals to debug the Pintos. This part teaches you how do this in Docker.
+If you have read the `Test and Debug` part in the Documentation, you may find that you need two terminals to debug the Pintos. This part teaches you how to do this in Docker.
 
-First run the Pintos container as usual in one terminal follow the command in the above section.
+First run the Pintos container as usual in one terminal following the command in the above section.
 
-Then run the commands below 
+and run the commands below to boot Pintos in gdb mode.
 
 ```
 cd pintos/src/threads/
