@@ -39,6 +39,9 @@ RUN cd $PINTOS_ROOT && src/misc/toolchain-build.sh $SWD
 # add toolchain into path
 RUN echo PATH=/home/PKUOS/toolchain/x86_64/bin:$PATH >> ~/.bashrc
 
+# remove the pintos dir
+RUN rm -rf /home/PKUOS/pintos
+
 # docker will end executing immediatedly without this
 CMD ["sleep", "infinity"]
 
