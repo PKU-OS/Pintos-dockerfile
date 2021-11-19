@@ -1,6 +1,8 @@
 # Docker for Pintos
 The easiest way to deploy cross-platform development environment for Pintos.
 
+This docker image has been tested on Mac (intel chip), Mac (apple chip), Windows, Linux.
+
 ## How to use
 Your TA has built a docker image which contains all the toolchain to compile, run and debug Pintos.
 
@@ -25,8 +27,10 @@ git clone git@github.com:PKU-OS/pintos.git
 
 Then run the docker image again but this time mount your `path/to/pintos` into the container.
 
+*You need to enter the absolute path to your pintos directory in the command below!*
+
 ```
-docker run -it --rm --name pintos --mount type=bind,source=path/to/pintos/on/your/host/machine,target=/home/PKUOS/pintos pkuflyingpig/pintos bash
+docker run -it --rm --name pintos --mount type=bind,source=absolute/path/to/pintos/on/your/host/machine,target=/home/PKUOS/pintos pkuflyingpig/pintos bash
 ```
 p.s. `--rm` tells docker to delete the container after running, and `--name pintos` names the container as `pintos`, this will be helpful in the debugging part.
 
@@ -41,7 +45,7 @@ cd build
 pintos --
 ```
 
-Bomb! If you see something like
+Bomb! The last command will trigger the qemu to simulate a 32-bit x86 machine and boot your Pintos on it. If you see something like
 
 ```
 Pintos hda1
@@ -55,6 +59,10 @@ Boot complete.
 ```
 
 Your Pintos has been booted successfully, congratulations :)
+
+You can close the qemu by `Ctrl+a+x` or `Ctrl+c` if the previous one does not work.
+
+Now Let's conclude what you have done. You used docker to run a Ubuntu container which functions like a full Linux OS inside your host OS. Then you use qemu to simulate a 32-bit x86 computer inside your container, then you boot a tiny toy OS -- Pintos on the computer which qemu simulates. Wow, virualization is great, right?
 
 Throughout this semester, you can modify your Pintos source code in your host machine with your favourite IDE and run/debug/test your Pintos in the container. You can leave the container running when you are modifying Pintos, and your modification will be visible in the container immediatedly.
 
