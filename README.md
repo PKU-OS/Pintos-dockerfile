@@ -62,7 +62,7 @@ Your Pintos has been booted successfully, congratulations :)
 
 You can close the qemu by `Ctrl+a+x` or `Ctrl+c` if the previous one does not work.
 
-Now Let's conclude what you have done. You used docker to run a Ubuntu container which functions like a full Linux OS inside your host OS. Then you use qemu to simulate a 32-bit x86 computer inside your container, then you boot a tiny toy OS -- Pintos on the computer which qemu simulates. Wow, virualization is great, right?
+Now Let's conclude what you have done. First, You used docker to run a Ubuntu container which functions as a full Linux OS inside your host OS. Then you used qemu to simulate a 32-bit x86 computer inside your container. Finally, you boot a tiny toy OS -- Pintos on the computer which qemu simulates. Wow, virtualization is amazing, right?
 
 Throughout this semester, you can modify your Pintos source code in your host machine with your favourite IDE and run/debug/test your Pintos in the container. You can leave the container running when you are modifying Pintos, and your modification will be visible in the container immediatedly.
 
